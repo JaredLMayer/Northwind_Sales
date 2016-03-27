@@ -20,5 +20,12 @@ router.post('/salesmen', function(req, res, next){
 	.catch(next);
 });
 
+router.delete('/salesmen/:id', function(req, res, next){
+	Salesman.findByIdAndRemove(req.params.id)
+	.then(function(salesman){
+		console.log("salesman deleted");
+	})
+	.catch(next);
+});
 
 module.exports = router;
